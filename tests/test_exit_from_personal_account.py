@@ -1,8 +1,9 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import AutorizationPageLocators, ProfilePageLocators
-from User_data import UserData
-from URLs import URL
+from user_data import UserData
+from urls import Url
+from conftest import get_driver
 
 
 class TestExit:
@@ -20,4 +21,4 @@ class TestExit:
         WebDriverWait(get_driver, 3).until(EC.visibility_of_element_located(ProfilePageLocators.BUTTON_LOG_OUT))
         get_driver.find_element(*ProfilePageLocators.BUTTON_LOG_OUT).click()
         WebDriverWait(get_driver, 3).until(EC.visibility_of_element_located(AutorizationPageLocators.LOGIN_SUBMIT))
-        assert URL.login_page == get_driver.current_url
+        assert Url.login_page == get_driver.current_url

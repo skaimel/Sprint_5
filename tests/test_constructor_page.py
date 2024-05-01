@@ -1,6 +1,7 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from locators import ConstructorLocators
+from conftest import get_driver
 
 class TestConstructor:
     def test_go_to_section_bread(self, get_driver):

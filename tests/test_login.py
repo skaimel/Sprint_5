@@ -1,12 +1,14 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from locators import RegistrationPageLocators, AutorizationPageLocators, ProfilePageLocators, ConstructorLocators
-from User_data import UserData
+from user_data import UserData
+from conftest import get_driver
+
 
 
 class TestAutorization:
     def test_login_from_button_in_main_page(self, get_driver):
-        WebDriverWait(get_driver, 3).until(EC.visibility_of_element_located(ConstructorLocators.BUTTON_LOG_IN_ACCOUNT))
+        WebDriverWait(get_driver, 5).until(EC.visibility_of_element_located(ConstructorLocators.BUTTON_LOG_IN_ACCOUNT))
         get_driver.find_element(*ConstructorLocators.BUTTON_LOG_IN_ACCOUNT).click()
         WebDriverWait(get_driver, 3).until(EC.visibility_of_element_located(AutorizationPageLocators.LOGIN_SUBMIT))
         get_driver.find_element(*AutorizationPageLocators.LOGIN_EMAIL_INPUT).send_keys((UserData.current_user.get(
@@ -18,7 +20,7 @@ class TestAutorization:
         assert get_driver.find_element(*ConstructorLocators.ORDER_BUTTON).text == 'Оформить заказ'
 
     def test_login_from_personal_account(self, get_driver):
-        WebDriverWait(get_driver, 3).until(EC.visibility_of_element_located(ProfilePageLocators.PERSONAL_ACCOUNT))
+        WebDriverWait(get_driver, 5).until(EC.visibility_of_element_located(ProfilePageLocators.PERSONAL_ACCOUNT))
         get_driver.find_element(*ProfilePageLocators.PERSONAL_ACCOUNT).click()
         get_driver.find_element(*AutorizationPageLocators.LOGIN_EMAIL_INPUT).send_keys(UserData.current_user.get(
             'email'))
@@ -44,7 +46,7 @@ class TestAutorization:
         assert get_driver.find_element(*ConstructorLocators.ORDER_BUTTON).text == 'Оформить заказ'
 
     def test_login_from_restore_password_page(self, get_driver):
-        WebDriverWait(get_driver, 3).until(EC.visibility_of_element_located(ProfilePageLocators.PERSONAL_ACCOUNT))
+        WebDriverWait(get_driver, 5).until(EC.visibility_of_element_located(ProfilePageLocators.PERSONAL_ACCOUNT))
         get_driver.find_element(*ProfilePageLocators.PERSONAL_ACCOUNT).click()
         (WebDriverWait(get_driver, 3).until(EC.visibility_of_element_located(AutorizationPageLocators.RESTORE_PASSWORD)))
         get_driver.find_element(*AutorizationPageLocators.RESTORE_PASSWORD).click()

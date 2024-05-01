@@ -31,7 +31,7 @@ class ConstructorLocators:
     SECTION_BREAD = (By.XPATH, "//h2[text() = 'Булки']")  # Текст раздела "Булки"
     SECTION_SAUCES = (By.XPATH, "//h2[text() = 'Соусы']")  # Текст раздела "Соусы"
     SECTION_TOPPING = (By.XPATH, "//h2[text() = 'Начинки']")  # Текст раздела "Начинки"
-    ORDER_BUTTON = (By.XPATH, ".//button[contains(@class, 'button_button_size_large') and text()='Оформить заказ']") # Кнопка Оформить заказ
+    ORDER_BUTTON = (By.XPATH, ".//button[contains(@class, 'button_button_size_large') and text()='Оформить заказ']")  # Кнопка Оформить заказ
 
 
 class ForgotPasswordLocators:

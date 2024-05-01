@@ -1,7 +1,8 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from tests.locators import RegistrationPageLocators, AutorizationPageLocators, ProfilePageLocators
-from User_data import UserData
+from locators import RegistrationPageLocators, AutorizationPageLocators, ProfilePageLocators
+from user_data import UserData
+from conftest import get_driver
 
 
 class TestRegistration:
